@@ -89,18 +89,46 @@ const data = [
   }
 ];
 
+function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+  //Instantiate all elements needed for an article
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const firstArtP = document.createElement('p');
+  const secondArtP = document.createElement('p');
+  const thirdArtP = document.createElement('p');
+  const expandButton = document.createElement('div');
+
+  //Set up the structure of the elements
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(firstArtP);
+  article.appendChild(secondArtP);
+  article.appendChild(thirdArtP);
+  article.appendChild(expandButton);
+
+  //add proper class names to elements
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton')
+
+  //Set text content using arguments as raw material
+
+}
+
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+  <div class="article">                         //article
+    <h2>{title of the article}</h2>             //articleTitle
+    <p class="date">{date of the article}</p>   //articleDate
 
-    {three separate paragraph elements}
-
-    <span class="expandButton">+</span>
+    {three separate paragraph elements}         //firstArtP
+                                                //secondArtP
+                                                //thirdArtP
+    <span class="expandButton">+</span>         //expandButton
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
