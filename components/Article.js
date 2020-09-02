@@ -86,6 +86,15 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'ATLA: The Gaang',
+    date: 'July 19th, 2020',
+    firstParagraph: `Hello ... Zuko here, but I guess you probably already know me, sort of. Uhhh ... so, the thing is I have a lot of firebending experience, and I'm considered to be pretty good at it. Well, you've seen it, you know, when I was attacking you. Uhhh ... yeah, I guess I should apologize for that. But anyway, I'm good now. I mean, I thought I was good before, but I realize I was bad, but anyway, I think it's time I joined your group and taught the Avatar firebending. Well, what's your answer? `,
+
+    secondParagraph: `Drink cactus juice. It'll quench ya! Nothing's quenchier. It's the quenchiest! Who lit Toph on fire? How did we get out here in the middle of the ocean? It's a giant mushroom! Maybe it's friendly! Friendly mushroom! Mushy giant friend! `,
+
+    thirdParagraph: `My name's Toph, because it sounds like tough, and that's just what I am! I can see you doing that. I see everything that you see, except I don't "see" like you do. I release a sonic wave from my mouth. There. I got a pretty good look at you.`
   }
 ];
 
