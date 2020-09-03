@@ -35,11 +35,10 @@ function menuMaker (menuItems) {
   return menu;
 }
 
-//test
-const result = menuMaker(menuItems);
-header.appendChild(result);
+//run
+const runFunction = menuMaker(menuItems);
+header.appendChild(runFunction);
 
-//console.log(test);
 
 /* 
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
