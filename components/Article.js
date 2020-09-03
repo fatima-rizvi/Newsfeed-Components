@@ -111,19 +111,23 @@ function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParag
   const secondArtP = document.createElement('p');
   const thirdArtP = document.createElement('p');
   const expandButton = document.createElement('div');
+  const closeButton = document.createElement('button');
 
   //Set up the structure of the elements
   article.appendChild(articleTitle);
   article.appendChild(articleDate);
+  article.appendChild(closeButton)
   article.appendChild(firstArtP);
   article.appendChild(secondArtP);
   article.appendChild(thirdArtP);
   article.appendChild(expandButton);
 
+
   //add proper class names to elements
   article.classList.add('article');
   articleDate.classList.add('date');
   expandButton.classList.add('expandButton')
+  closeButton.classList.add('close-button');
 
   //Set text content using arguments as raw material
   articleTitle.textContent = title;
@@ -132,13 +136,18 @@ function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParag
   secondArtP.textContent = secondParagraph;
   thirdArtP.textContent = thirdParagraph;
   expandButton.textContent = '+';
+  closeButton.textContent = 'Finished Reading';
 
   /* step2 - Still inside `articleMaker`, add an event listener to the span.expandButton.
   This listener should toggle the class 'article-open' on div.article. */
-
+  
   expandButton.addEventListener('click', event => {
     //toggle the class 'article-open on div.article
     article.classList.toggle('article-open');
+  })
+
+  closeButton.addEventListener('click', function(event) {
+    article.classList.add('hidden');
   })
 
   //Step 3: Don't forget to return something from your function!
@@ -149,9 +158,6 @@ function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParag
   to create a div.article element and append it to the DOM inside div.articles (see index.html) */
 
 //Test function
-const test = articleMaker({title: 'foo', date: '8', firstParagraph: 'hi', secondParagraph: 'my', thirdParagraph: 'dude'});
-
-console.log(test);
 
 data.forEach(articleObj => {
   const artElement = articleMaker(articleObj);
