@@ -86,21 +86,97 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'ATLA: The Gaang',
+    date: 'July 19th, 2020',
+    firstParagraph: `Hello ... Zuko here, but I guess you probably already know me, sort of. Uhhh ... so, the thing is I have a lot of firebending experience, and I'm considered to be pretty good at it. Well, you've seen it, you know, when I was attacking you. Uhhh ... yeah, I guess I should apologize for that. But anyway, I'm good now. I mean, I thought I was good before, but I realize I was bad, but anyway, I think it's time I joined your group and taught the Avatar firebending. Well, what's your answer? `,
+
+    secondParagraph: `Drink cactus juice. It'll quench ya! Nothing's quenchier. It's the quenchiest! Who lit Toph on fire? How did we get out here in the middle of the ocean? It's a giant mushroom! Maybe it's friendly! Friendly mushroom! Mushy giant friend! `,
+
+    thirdParagraph: `My name's Toph, because it sounds like tough, and that's just what I am! I can see you doing that. I see everything that you see, except I don't "see" like you do. I release a sonic wave from my mouth. There. I got a pretty good look at you.`
   }
 ];
+
+  // Grab the parent element for the article div
+  const articles = document.querySelector('.articles')
+
+function articleMaker ({title, date, firstParagraph, secondParagraph, thirdParagraph}) {
+
+  //Instantiate all elements needed for an article
+  const article = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const firstArtP = document.createElement('p');
+  const secondArtP = document.createElement('p');
+  const thirdArtP = document.createElement('p');
+  const expandButton = document.createElement('div');
+  const closeButton = document.createElement('button');
+
+  //Set up the structure of the elements
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(closeButton)
+  article.appendChild(firstArtP);
+  article.appendChild(secondArtP);
+  article.appendChild(thirdArtP);
+  article.appendChild(expandButton);
+
+
+  //add proper class names to elements
+  article.classList.add('article');
+  articleDate.classList.add('date');
+  expandButton.classList.add('expandButton')
+  closeButton.classList.add('close-button');
+
+  //Set text content using arguments as raw material
+  articleTitle.textContent = title;
+  articleDate.textContent = date;
+  firstArtP.textContent = firstParagraph;
+  secondArtP.textContent = secondParagraph;
+  thirdArtP.textContent = thirdParagraph;
+  expandButton.textContent = '+';
+  closeButton.textContent = 'Finished Reading';
+
+  /* step2 - Still inside `articleMaker`, add an event listener to the span.expandButton.
+  This listener should toggle the class 'article-open' on div.article. */
+  
+  expandButton.addEventListener('click', event => {
+    //toggle the class 'article-open on div.article
+    article.classList.toggle('article-open');
+  })
+
+  closeButton.addEventListener('click', function(event) {
+    article.classList.add('hidden');
+  })
+
+  //Step 3: Don't forget to return something from your function!
+  return article;
+}
+
+/* Step 4: Outside your function now, loop over the data. At each iteration you'll use your component
+  to create a div.article element and append it to the DOM inside div.articles (see index.html) */
+
+//Test function
+
+data.forEach(articleObj => {
+  const artElement = articleMaker(articleObj);
+  articles.appendChild(artElement)
+})
 
 /*
   Step 1: Write a component called 'articleMaker' to create an article.
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
-  <div class="article">
-    <h2>{title of the article}</h2>
-    <p class="date">{date of the article}</p>
+  <div class="article">                         //article
+    <h2>{title of the article}</h2>             //articleTitle
+    <p class="date">{date of the article}</p>   //articleDate
 
-    {three separate paragraph elements}
-
-    <span class="expandButton">+</span>
+    {three separate paragraph elements}         //firstArtP
+                                                //secondArtP
+                                                //thirdArtP
+    <span class="expandButton">+</span>         //expandButton
   </div>
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
